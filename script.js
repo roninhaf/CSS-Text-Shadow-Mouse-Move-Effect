@@ -1,15 +1,17 @@
+"use strict";
+
 const hero = document.querySelector('.hero');
 const text = document.querySelector('h1');
 const walk = 200; //100px
 
-function shadow(e) {
+function shadow(event) {
     
     const {offsetWidth: width, offsetHeight: height} = hero;
-    let {offsetX: x, offsetY: y} = e;
+    let {offsetX: x, offsetY: y} = event;
 
-    if(this!== e.target) {
-        x = x + e.target.offsetLeft;
-        y = y + e.target.offsetTop;
+    if(this!== event.target) {
+        x += event.target.offsetLeft;
+        y += event.target.offsetTop;
     }
 
     const xWalk = Math.round(x / width * walk) - (walk / 2);
